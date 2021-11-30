@@ -1,5 +1,12 @@
 package com.example.ecommerceproject;
 
+import com.example.ecommerceproject.Entities.Cart;
+import com.example.ecommerceproject.Entities.Customer;
+import com.example.ecommerceproject.Entities.Product;
+import com.example.ecommerceproject.Repositories.CartRepository;
+import com.example.ecommerceproject.Repositories.CustomerRepository;
+import com.example.ecommerceproject.Repositories.ProductRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -32,10 +39,10 @@ this.customerRepository.save(hannah);
 this.customerRepository.save(nadia);
 this.customerRepository.save(tony);
 
-this.cartRepository.save(new Cart("Pineapple", 5, "Ripe Pinapple",
+this.cartRepository.save(new Cart(1, "Pineapple", 5, "Ripe Pinapple",
 "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZnJ1aXR8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60/",
 hannah));
-this.cartRepository.save(new Cart("Strawberries", 5, "Ripe Strawberries",
+this.cartRepository.save(new Cart(1, "Strawberries", 5, "Ripe Strawberries",
 "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZnJ1aXR8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60"
 ,nadia));
 

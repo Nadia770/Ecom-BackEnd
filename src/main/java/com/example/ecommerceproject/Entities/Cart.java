@@ -1,4 +1,4 @@
-package com.example.ecommerceproject;
+package com.example.ecommerceproject.Entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +16,8 @@ public class Cart {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
+  @Column(name = "count")
+  private int count;
   @Column(name = "name")
   private String name;
   @Column(name = "price")
@@ -60,9 +62,17 @@ public class Cart {
   public void setImage(String image) {
     this.image = image;
   }
+
+  public int getCount() {
+    return count;
+  }
+  public void setCount(int count) {
+    this.count = count;
+  }
   public Cart() {
   }
-  public Cart(String name, int price, String description, String image, Customer customer) {
+  public Cart(int count, String name, int price, String description, String image, Customer customer) {
+    this.count = count;
     this.name = name;
     this.price = price;
     this.description = description;
