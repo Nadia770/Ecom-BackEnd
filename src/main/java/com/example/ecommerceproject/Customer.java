@@ -8,11 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user")
-public class User {
+@Table(name="customer")
+public class Customer {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
+
   @Column(name = "username")
   private String username;
   @Column(name = "password")
@@ -36,14 +38,14 @@ public class User {
   public void setPassword(String password) {
     this.password = password;
   }
-  public User(){
+  public Customer(){
   }
-  public User(String username, String password) {
+  public Customer(String username, String password) {
     this.username = username;
     this.password = password;
   }
   @Override
   public String toString() {
-    return "User [password=" + password + ", username=" + username + "]";
+    return "Customer [password=" + password + ", username=" + username + "]";
   }
 }

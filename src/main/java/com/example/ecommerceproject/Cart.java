@@ -26,8 +26,8 @@ public class Cart {
   private String image;
 
   @OneToOne
-  @JoinColumn(name ="user_id", referencedColumnName = "id")
-  private User user; 
+  @JoinColumn(name ="cusomter_id", referencedColumnName = "id")
+  private Customer customer; 
 
 
   public int getId() {
@@ -62,12 +62,12 @@ public class Cart {
   }
   public Cart() {
   }
-  public Cart(String name, int price, String description, String image, User user) {
+  public Cart(String name, int price, String description, String image, Customer customer) {
     this.name = name;
     this.price = price;
     this.description = description;
     this.image = image;
-    this.user = user;
+    this.customer = customer;
   }
   @Override
   public String toString() {
