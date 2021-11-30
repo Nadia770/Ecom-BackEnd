@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="cart")
@@ -21,8 +24,12 @@ public class Cart {
   private String description;
   @Column(name = "image")
   private String image;
-  @Column(name = "userId")
-  private int userId;
+
+  @OneToOne
+  @JoinColumn(name ="user_id", referencedColumnName = "id")
+  private User user; 
+
+
   public int getId() {
     return id;
   }
@@ -53,25 +60,18 @@ public class Cart {
   public void setImage(String image) {
     this.image = image;
   }
-  public int getUserId() {
-    return userId;
-  }
-  public void setUserId(int userId) {
-    this.userId = userId;
-  }
   public Cart() {
   }
-  public Cart(String name, int price, String description, String image, int userId) {
+  public Cart(String name, int price, String description, String image, User user) {
     this.name = name;
     this.price = price;
     this.description = description;
     this.image = image;
-    this.userId = userId;
+    this.user = user;
   }
   @Override
   public String toString() {
-    return "Cart [description=" + description + ", image=" + image + ", name=" + name + ", price=" + price + ", userId="
-        + userId + "]";
+    return "Cart [description=" + description + ", image=" + image + ", name=" + name + ", price=" + price + "]";
   }
   
 }
