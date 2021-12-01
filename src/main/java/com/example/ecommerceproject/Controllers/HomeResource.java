@@ -8,7 +8,7 @@ public class HomeResource {
 
   @GetMapping("/http://localhost:3000/")
   public String home() {
-    return ("<h1>Welcome</h1>");
+    return ("home");
   }
 
   @GetMapping("/http://localhost:3000/cart")

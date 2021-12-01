@@ -23,6 +23,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http
+        .csrf().disable()
         .authorizeRequests()
         // .anyRequest().authenticated()
         .antMatchers("/cart").hasAnyRole("USER")
@@ -31,6 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .formLogin()
         .loginPage("http://localhost:3000/login")
         .permitAll();
+
   }
 
   @Bean
