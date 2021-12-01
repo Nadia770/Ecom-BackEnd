@@ -11,40 +11,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+// import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-public class EcommerceprojectApplication implements CommandLineRunner{
+// @EnableJpaRepositories(basePackageClasses = CustomerRepository.class)
+public class EcommerceprojectApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EcommerceprojectApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(EcommerceprojectApplication.class, args);
+  }
 
+  @Autowired
+  private CustomerRepository customerRepository;
 
-	@Autowired
-	private CustomerRepository customerRepository;
+  @Autowired
+  private CartRepository cartRepository;
 
-	@Autowired
-	private CartRepository cartRepository;
+  @Autowired
+  private ProductRepository productRepository;
 
-	@Autowired
-	private ProductRepository productRepository;
+  public void run(String... args) throws Exception {
+    var hannah = new Customer("Hannah123", "bluerries", "USER", true);
+    var nadia = new Customer("Nadia221", "redlorry", "USER", true);
+    var tony = new Customer("Tony_5", "yellowlolly", "USER", true);
 
-	public void run(String...args) throws Exception {
-var hannah = new Customer("Hannah123", "bluerries");
-var nadia = new Customer("Nadia221", "redlorry");
-var tony = new Customer("Tony_5", "yellowlolly");
-
-this.customerRepository.save(hannah);
-this.customerRepository.save(nadia);
-this.customerRepository.save(tony);
-
-this.cartRepository.save(new Cart(1, "Pineapple", 5, "Ripe Pinapple",
-"https://images.unsplash.com/photo-1550258987-190a2d41a8ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZnJ1aXR8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60/",
-hannah));
-this.cartRepository.save(new Cart(1, "Strawberries", 5, "Ripe Strawberries",
-"https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZnJ1aXR8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60"
-,nadia));
+    this.customerRepository.save(hannah);
+    this.customerRepository.save(nadia);
+    this.customerRepository.save(tony);
 
 this.productRepository.save(new Product(
 					"Pineapple",
@@ -118,8 +111,16 @@ this.productRepository.save(new Product(
           "Ripe Melon",
           "https://images.pexels.com/photos/7065188/pexels-photo-7065188.jpeg?cs=srgb&dl=pexels-laura-tancredi-7065188.jpg&fm=jpg"
 				));
-	}
 
-	
+
+		this.cartRepository.save(new Cart(1, "Pineapple", 5, "Ripe Pinapple",
+        "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZnJ1aXR8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60/",
+        hannah));
+    this.cartRepository.save(new Cart(1, "Strawberries", 5, "Ripe Strawberries",
+        "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZnJ1aXR8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60",
+        nadia));
+
+	}
+   
 
 }
