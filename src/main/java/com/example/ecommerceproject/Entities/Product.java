@@ -13,6 +13,8 @@ public class Product {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
+  @Column(name = "count")
+  private int count;
   @Column(name = "name")
   private String name;
   @Column(name = "price")
@@ -54,7 +56,8 @@ public class Product {
   }
   public Product() {
   }
-  public Product(String name, int price, String description, String image) {
+  public Product(int count, String name, int price, String description, String image) {
+    this.count = count;
     this.name = name;
     this.price = price;
     this.description = description;

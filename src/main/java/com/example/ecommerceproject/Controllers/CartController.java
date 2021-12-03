@@ -5,13 +5,17 @@ import java.util.List;
 import com.example.ecommerceproject.Entities.Cart;
 import com.example.ecommerceproject.Repositories.CartRepository;
 
+import org.apache.catalina.startup.ClassLoaderFactory.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 @RestController
 @RequestMapping("/")
@@ -29,7 +33,14 @@ public class CartController {
   @PostMapping("cart")
   public Cart addToCart(@RequestBody Cart cart) {
    return this.cartRepository.save(cart);
-    // return this.cartRepository.findAll();
+
   }
+
+  // @PutMapping(value="cart/{id}")
+  // public ResponseEntity<Cart> updateCartCountCart(@PathVariable int id, @RequestBody Cart ) {
+  //     Cart cart = cartRepository.findById(id).get();
+  //     cart.setCount(count);
+  //     return cartRepository.save(cart);
+  // }
 
 }
