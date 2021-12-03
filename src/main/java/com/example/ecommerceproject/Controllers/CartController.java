@@ -30,24 +30,18 @@ public class CartController {
     return this.cartRepository.findAll();
   }
 
-  // @PostMapping("cart")
-  // public Cart addToCart(@RequestBody Cart cart) {
-  //  return this.cartRepository.save(cart);
-  // }
-
-
   @PostMapping("cart")
-  public List <Cart> addToCart(@RequestBody Cart cart) {
-   this.cartRepository.save(cart);
-   return this.cartRepository.findAll();
+  public Cart addToCart(@RequestBody Cart cart) {
+   return this.cartRepository.save(cart);
   }
 
 
-  // @PutMapping(value="cart/{id}")
-  // public ResponseEntity<Cart> updateCartCountCart(@PathVariable int id, @RequestBody Cart ) {
-  //     Cart cart = cartRepository.findById(id).get();
-  //     cart.setCount(count);
-  //     return cartRepository.save(cart);
-  // }
+  @PutMapping(value="cart/{id}")
+  public ResponseEntity<Cart> updateCartCountCart(@PathVariable Integer id, @RequestBody Cart newCart ) {
+      Cart cart = cartRepository.findById(id).get();
+      cart.setCount(newCart.getCount());
+      Cart updatedCart = cartRepository.save(cart);
+      return ResponseEntity.ok(updatedCart);
+  }
 
 }
