@@ -39,7 +39,7 @@ public class EcommerceprojectApplication implements CommandLineRunner {
     this.customerRepository.save(nadia);
     this.customerRepository.save(tony);
 
-    this.productRepository.save(new Product(0,
+    this.productRepository.save(new Product(1,
         "Pineapple",
         5,
         "Ripe Pineapple",

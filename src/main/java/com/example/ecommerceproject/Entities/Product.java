@@ -24,6 +24,12 @@ public class Product {
   @Column(name = "image")
   private String image;
 
+  public int getCount() {
+    return count;
+  }
+  public void setCount(int count) {
+    this.count = count;
+  }
   public int getId() {
     return id;
   }

@@ -30,11 +30,18 @@ public class CartController {
     return this.cartRepository.findAll();
   }
 
-  @PostMapping("cart")
-  public Cart addToCart(@RequestBody Cart cart) {
-   return this.cartRepository.save(cart);
+  // @PostMapping("cart")
+  // public Cart addToCart(@RequestBody Cart cart) {
+  //  return this.cartRepository.save(cart);
+  // }
 
+
+  @PostMapping("cart")
+  public List <Cart> addToCart(@RequestBody Cart cart) {
+   this.cartRepository.save(cart);
+   return this.cartRepository.findAll();
   }
+
 
   // @PutMapping(value="cart/{id}")
   // public ResponseEntity<Cart> updateCartCountCart(@PathVariable int id, @RequestBody Cart ) {
