@@ -20,16 +20,16 @@ public class CartController {
   @Autowired
   private CartRepository cartRepository;
 
-  @GetMapping("cart/{id}")
-  public Cart getCartbyId(@PathVariable int id) {
+  @GetMapping("cart")
+  public  List<Cart> getCartby() {
 
-    return this.cartRepository.findById(id).get();
+    return this.cartRepository.findAll();
   }
 
-  @PostMapping("cart/{id}")
-  public List<Cart> addToCartbyId(@RequestBody Cart cart, @PathVariable int id) {
-    this.cartRepository.save(cart);
-    return this.cartRepository.findAll();
+  @PostMapping("cart")
+  public Cart addToCart(@RequestBody Cart cart) {
+   return this.cartRepository.save(cart);
+    // return this.cartRepository.findAll();
   }
 
 }
