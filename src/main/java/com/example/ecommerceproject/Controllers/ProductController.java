@@ -1,6 +1,5 @@
 package com.example.ecommerceproject.Controllers;
 
-
 import java.util.List;
 
 import com.example.ecommerceproject.Entities.Product;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping("/")
 public class ProductController {
@@ -20,12 +18,9 @@ public class ProductController {
   private ProductRepository productRepository;
 
   @GetMapping("products")
-  public List<Product> getProducts(){
+  public List<Product> getProducts() {
 
     return this.productRepository.findAll();
   }
 
 }
-
-  
-
