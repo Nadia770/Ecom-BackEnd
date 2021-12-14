@@ -1,9 +1,7 @@
 package com.example.ecommerceproject;
 
-import com.example.ecommerceproject.Entities.Cart;
 import com.example.ecommerceproject.Entities.Customer;
 import com.example.ecommerceproject.Entities.Product;
-import com.example.ecommerceproject.Repositories.CartRepository;
 import com.example.ecommerceproject.Repositories.CustomerRepository;
 import com.example.ecommerceproject.Repositories.ProductRepository;
 
@@ -22,9 +20,6 @@ public class EcommerceprojectApplication implements CommandLineRunner {
 
   @Autowired
   private CustomerRepository customerRepository;
-
-  @Autowired
-  private CartRepository cartRepository;
 
   @Autowired
   private ProductRepository productRepository;
@@ -98,11 +93,6 @@ public class EcommerceprojectApplication implements CommandLineRunner {
         1.49,
         "Ripe Melon",
         "https://images.pexels.com/photos/7065188/pexels-photo-7065188.jpeg?cs=srgb&dl=pexels-laura-tancredi-7065188.jpg&fm=jpg"));
-
-    // this.cartRepository.save(new Cart(1, "Pineapple", 5, "Ripe Pinapple",
-    // "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZnJ1aXR8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60/"));
-    // this.cartRepository.save(new Cart(1, "Strawberries", 5, "Ripe Strawberries",
-    // "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZnJ1aXR8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60"));
 
   }
 
